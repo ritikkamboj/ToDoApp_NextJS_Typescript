@@ -1,3 +1,108 @@
 .active {
   color: red;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rem;
+}
+main h1 {
+  font-size: 3rem;
+  margin-bottom: 4.8rem;
+}
+.icons {
+  color: green;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 55rem;
+  border-bottom: 0.1rem solid gray;
+}
+nav a {
+  font-size: 3rem;
+  color: #ccc;
+  border-bottom: 0.3rem solid #ccc;
+}
+
+nav a:hover {
+  border-color: #343845;
+}
+
+nav a.active {
+  color: #ccc;
+  border-color: #68b984;
+}
+
+form input {
+  border: 0.1rem solid #ccc;
+  border-radius: 0.3rem;
+  width: 45rem;
+  margin: 4rem 0;
+  padding: 0.6rem 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+form button {
+  padding: 0.8rem 2.8rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 2.4rem;
+  color: #fff;
+  background-color: #68b984;
+  margin-bottom: 5px;
+}
+label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3a3845;
+}
+ul li {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  width: 50rem;
+  min-height: 6rem;
+  border-bottom: 0.1rem solid #ccc;
+}
+ul li:first-child {
+  border-top: 0.1rem solid #ccc;
+}
+ul li:hover {
+  background-color: #fef2f2;
+}
+ul li input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #d14d72;
+}
+ul li button {
+  padding: 0.6rem 1rem;
+  width: 7rem;
+  background-color: #d14d72;
+  color: #fff9f9;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+}

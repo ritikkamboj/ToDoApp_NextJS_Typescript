@@ -2,7 +2,6 @@
 import React from "react";
 import { useTodo } from "../store/todos";
 import { useSearchParams } from "next/navigation";
-import { todo } from "node:test";
 
 function Todolist() {
   const { todos, togglecheckbox, handledelete } = useTodo();

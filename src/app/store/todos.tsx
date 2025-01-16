@@ -18,7 +18,10 @@ export type todoContext = {
 };
 
 export const TodoProvider = ({ children }: { children: ReactNode }) => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const newtodos = localStorage.getItem("data" || "[]");
+    return JSON.parse(newtodos) as Todo[];
+  });
 
   function handleAddTodo(todo: string) {
     setTodos((prev) => {
@@ -31,7 +34,7 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
           date: new Date(),
         },
       ];
-
+      localStorage.setItem("data", JSON.stringify(newtodos));
       return newtodos;
     });
   }
@@ -44,12 +47,16 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
         }
         return task;
       });
+      localStorage.setItem("data", JSON.stringify(newtodos));
+
       return newtodos;
     });
   }
   function handledelete(id: string) {
     setTodos((prev) => {
       const newtodos = prev.filter((todo) => todo.id !== id);
+      localStorage.setItem("data", JSON.stringify(newtodos));
+
       return newtodos;
     });
   }
