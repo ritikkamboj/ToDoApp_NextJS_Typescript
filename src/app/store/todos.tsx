@@ -19,8 +19,8 @@ export type todoContext = {
 
 export const TodoProvider = ({ children }: { children: ReactNode }) => {
   const [todos, setTodos] = useState<Todo[]>(() => {
-    const newtodos = localStorage.getItem("data" || "[]");
-    return JSON.parse(newtodos) as Todo[];
+    const newtodos = localStorage.getItem("data");
+    return newtodos ? JSON.parse(newtodos) : [];
   });
 
   function handleAddTodo(todo: string) {
