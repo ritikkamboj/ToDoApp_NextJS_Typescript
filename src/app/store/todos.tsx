@@ -13,6 +13,8 @@ export type Todo = {
 export type todoContext = {
   todos: Todo[];
   handleAddTodo: (todo: string) => void;
+  togglecheckbox: (id: string) => void;
+  handledelete: (id: string) => void;
 };
 
 export const TodoProvider = ({ children }: { children: ReactNode }) => {
@@ -34,8 +36,28 @@ export const TodoProvider = ({ children }: { children: ReactNode }) => {
     });
   }
 
+  function togglecheckbox(id: string) {
+    setTodos((prev) => {
+      const newtodos = prev.map((task) => {
+        if (task.id === id) {
+          return { ...task, completed: !task.completed };
+        }
+        return task;
+      });
+      return newtodos;
+    });
+  }
+  function handledelete(id: string) {
+    setTodos((prev) => {
+      const newtodos = prev.filter((todo) => todo.id !== id);
+      return newtodos;
+    });
+  }
+
   return (
-    <todoContext.Provider value={{ todos, handleAddTodo }}>
+    <todoContext.Provider
+      value={{ todos, handleAddTodo, togglecheckbox, handledelete }}
+    >
       {children}
     </todoContext.Provider>
   );
